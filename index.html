@@ -54,12 +54,19 @@ textarea {
 .hidden {
   display: none;
 }
+
+#section3-divorce > p {
+  text-align: left;
+}
+#section3-divorce > h3 {
+  color: #1da1f2;
+}
   </style>
   <script src="jquery-3.3.1.min.js"></script>
 </head>
 <body>
-  <h2>Welcome to LegalMap</h2>
   <div id="section1">
+    <h2>Welcome to LegalMap</h2>
     <p>How can we help?</p>
     <textarea id="question"></textarea>
     <p><button id="button1">Ask</button></p>
@@ -98,8 +105,15 @@ textarea {
     </table>
     <p><button id="button2-divorce">Done</button></p>
   </div>
-  <div id="section3" class="hidden">
-    <p></p>
+  <div id="section3-divorce" class="hidden">
+    <h2>Your LegalMap</h2>
+    <h3>Find the information you need below</h3>
+    <p>1. You can file for a divorce with the Federal Circuit Court. However you will have to wait until you have been separated for at least 12 months. You can still live in the same house and be considered separated.</p>
+    <p>2. To obtain a divorce, you can complete a divorce application which is filed online <a href="google.com">here</a>. You now have all the information necessary to complete it.</p>
+    <p>3. You will need your marriage certificate. This can be obtained for as little as $31 through the Registry of Births, Deaths and Marriages. Use this <a href="google.com">link</a>.</p>
+    <p>4. Before filing (online or on paper), you need to sign the last page and have it witnessed by an authorised witness. A list of authorised witnesses and their location is available <a href="google.com">here</a>.</p>
+    <p>5. After filing, you also need to provide your spouse with a copy. This is known as ‘serving’ the divorce application. This can be done by post, or in person. Here is your service form, ready to go.</p>
+    <p>6. There aren’t children under 18 involved so you do not have to attend the hearing, unless your spouse contests the divorce. Please <a href="google.com">update your query</a> if this occurs.</p>
   </div>
   <script>
 var keywords = {
@@ -119,6 +133,8 @@ $(document).ready(function() {
     }
   });
   $('#button2-divorce').click(function() {
+    $('#section1').hide();
+    $('#section2-divorce').hide();
     $('#section3-divorce').show();
   });
 });
