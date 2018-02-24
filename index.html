@@ -50,6 +50,10 @@ textarea {
   border-radius: 25px;
   border-color: #1da1f2;
   resize: none;
+  font-size: 16pt;
+}
+textarea:focus {
+  outline: none;
 }
 .hidden {
   display: none;
@@ -58,7 +62,7 @@ textarea {
 #section3-divorce > p {
   text-align: left;
 }
-#section3-divorce > h3 {
+h3 {
   color: #1da1f2;
 }
   </style>
@@ -67,7 +71,7 @@ textarea {
 <body>
   <div id="section1">
     <h2>Welcome to LegalMap</h2>
-    <p>How can we help?</p>
+    <h3>How can we help?</h3>
     <textarea id="question"></textarea>
     <p><button id="button1">Ask</button></p>
   </div>
