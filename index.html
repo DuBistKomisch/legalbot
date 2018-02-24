@@ -68,6 +68,11 @@ h2 {
 .address p {
   margin: 0;
 }
+.gmaps {
+  width: 100%;
+  height: 300px;
+  box-sizing: border-box;
+}
   </style>
   <script src="jquery-3.3.1.min.js"></script>
 </head>
@@ -126,8 +131,8 @@ h2 {
     <h1>Your LegalMap</h1>
     <h2>Find the information you need below</h2>
     <p>It appears that you may need some legal advice.</p>
-    <p>You're closest suitable Legal Service is:</p>
-    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBF4oO7MMBe6VM7yaSJKcaiPgdSTt2UJJE&q=Monash+Oakleigh+Legal+Service" allowfullscreen> </iframe>
+    <p>We recommend:</p>
+    <iframe class="gmaps" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBF4oO7MMBe6VM7yaSJKcaiPgdSTt2UJJE&q=Monash+Oakleigh+Legal+Service" allowfullscreen></iframe>
     <div class="address">
       <p>Monash Oakleigh Legal Service</p>
       <p>60 Beddoe Ave, Clayton VIC 3168</p>
