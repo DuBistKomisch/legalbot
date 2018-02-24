@@ -112,17 +112,23 @@ th, td {
     padding: 8px;
 }
 
-.socialmedia{
-    margin-left: 550px;
-   
+.socialmedia {
+  display: flex;
+  flex-direction: column;
 }
+
+.socialmediarow {
+  display: flex;
+  margin: auto;
+}
+
 .fa {
   padding: 20px;
   font-size: 30px;
   width: 50px;
   text-align: center;
   text-decoration: none;
-  margin: 5px 2px;
+  margin: 5px;
 }
 
 .fa:hover {
