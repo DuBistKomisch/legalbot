@@ -63,20 +63,22 @@ li.dropdown {
     width: 24.58%;
 }
 
-.aside{
-    float: left;
-    width: 100%;
-    text-align: center;
-}
-
 * {box-sizing:border-box}
 body {font-family: Verdana,sans-serif;}
 .mySlides {display:none}
 
+.index-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .slideshow-container {
-    float: left;
     max-width: 1000px;
     position: relative;
+    margin: auto;
+}
+
+.twitter-frame {
     margin: auto;
 }
 
