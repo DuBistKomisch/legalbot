@@ -59,11 +59,14 @@ textarea:focus {
   display: none;
 }
 
-#section3-divorce > p {
+p, td {
   text-align: left;
 }
 h2 {
   color: #1da1f2;
+}
+.address p {
+  margin: 0;
 }
   </style>
   <script src="jquery-3.3.1.min.js"></script>
@@ -119,9 +122,28 @@ h2 {
     <p>5. After filing, you also need to provide your spouse with a copy. This is known as ‘serving’ the divorce application. This can be done by post, or in person. Here is your service form, ready to go.</p>
     <p>6. There aren’t children under 18 involved so you do not have to attend the hearing, unless your spouse contests the divorce. Please <a href="google.com">update your query</a> if this occurs.</p>
   </div>
+  <div id="section3-divorce2" class="hidden">
+    <h1>Your LegalMap</h1>
+    <h2>Find the information you need below</h2>
+    <p>It appears that you may need some legal advice.</p>
+    <p>You're closest suitable Legal Service is:</p>
+    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBF4oO7MMBe6VM7yaSJKcaiPgdSTt2UJJE&q=Monash+Oakleigh+Legal+Service" allowfullscreen> </iframe>
+    <div class="address">
+      <p>Monash Oakleigh Legal Service</p>
+      <p>60 Beddoe Ave, Clayton VIC 3168</p>
+      <p>(03) 9905 4336</p>
+      <p>Mon-Fri 9am - 5pm</p>
+    </div>
+    <p>Would you like to be connected with this Legal Service? We will pass on the information you have given us, and you will be contacted by a volunteer as soon as possible.</p>
+    <p>
+      <input type="radio" value="true">Yes</input>
+      <input type="radio" value="false">No</input>
+    </p>
+    <button>Submit</button>
+  </div>
   <script>
 var keywords = {
-  divorce: ['separate', 'divorce', 'break up', 'property', 'house', 'kid', 'child', 'custody', 'leave', 'breakup'],
+  divorce: ['separate', 'divorce', 'break up', 'property', 'house', 'kid', 'child', 'custody', 'leave', 'breakup', 'wife', 'husband', 'spouse'],
   diversion: ['charge', 'accident', 'crash', 'reckless', 'dangerous', 'driving', 'police', 'court', 'speed', 'breath']
 };
 $(document).ready(function() {
@@ -137,9 +159,14 @@ $(document).ready(function() {
     }
   });
   $('#button2-divorce').click(function() {
+    var children = $('input[name=info3-divorce]:checked').val() === 'true';
     $('#section1').hide();
     $('#section2-divorce').hide();
-    $('#section3-divorce').show();
+    if (children) {
+      $('#section3-divorce2').show();
+    } else {
+      $('#section3-divorce').show();
+    }
   });
 });
   </script>
