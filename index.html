@@ -2,31 +2,50 @@
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
-  <title>LegalBot</title>
+  <title>LegalMap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-      body {
-    background-color: #e6ecf0;
-    margin: auto;
-    width: 50%;
-    font-family: "Helvetca Neue", Helvetica, Arial, sans-serif;
-    text-align: center;
+@font-face {
+  font-family: avenir;
+  src: url("avenir.otf") format("opentype");
+}
+
+html {
+  background-color: #e6ecf0;
+  height: 100%;
+}
+body {
+  background-color: #ffffff;
+  margin: auto;
+  height: 100%;
+  width: 50%;
+  max-width: 700px;
+  padding: 0 20px;
+  text-align: center;
+  font-family: avenir, "Helvetca Neue", Helvetica, Arial, sans-serif;
+  padding: 20px;
+}
+textarea {
+  font-family: avenir, "Helvetca Neue", Helvetica, Arial, sans-serif;
+  padding: 10px;
+  border: 1px solid black;
+  box-sizing: border-box;
 }
 
 button{
-        background-color: #1da1f2;
-        border: 1px solid #1da1f2;
-        border-radius: 25px;
-        border-color: #c0deed;
-        text-align: center;
-        text-decoration: none;  
-         font-size: 20px;
-     margin: auto;
-    width: 600px;
+  background-color: #1da1f2;
+  border: 1px solid #1da1f2;
+  border-radius: 25px;
+  border-color: #c0deed;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  margin: auto;
+  width: 100%;
 }
 
 textarea {
-  width: 600px;
+  width: 100%;
   height: 200px;
   border-radius: 25px;
   border-color: #1da1f2;
@@ -39,7 +58,7 @@ textarea {
   <script src="jquery-3.3.1.min.js"></script>
 </head>
 <body>
-  <h2>Welcome to LegalBot</h2>
+  <h2>Welcome to LegalMap</h2>
   <div id="section1">
     <p>How can we help?</p>
     <textarea id="question"></textarea>
@@ -56,8 +75,11 @@ textarea {
         </td>
       </tr>
       <tr>
-        <td><label for="info2-divorce">How many years have you been married?</label></td>
-        <td><input type="text" id="info2-divorce"></input></td>
+        <td><label for="info2-divorce">Have you been separated for at least 12 months?</label></td>
+        <td>
+          <input type="radio" name="info2-divorce" value="true">Yes</input>
+          <input type="radio" name="info2-divorce" value="false">No</input>
+        </td>
       </tr>
       <tr>
         <td><label for="info3-divorce">Do you have any children under 18?</label></td>
@@ -77,7 +99,7 @@ textarea {
     <p><button id="button2-divorce">Done</button></p>
   </div>
   <div id="section3" class="hidden">
-    <p id="result"></p>
+    <p></p>
   </div>
   <script>
 var keywords = {
@@ -89,7 +111,6 @@ $(document).ready(function() {
     $('#question').prop('disabled', true);
     $('#button1').hide();
     var question = $('#question').val().toLowerCase();
-    console.log(question);
     var topic = Object.keys(keywords).find((topic) => keywords[topic].filter((word) => question.includes(word)).length > 0);
     if (topic === 'divorce') {
       $('#section2-divorce').show();
@@ -97,9 +118,8 @@ $(document).ready(function() {
       $('#section2-diversion').show();
     }
   });
-  $('#button2').click(function() {
-    $('#result').text('Just get a divorce lol.');
-    $('#section3').show();
+  $('#button2-divorce').click(function() {
+    $('#section3-divorce').show();
   });
 });
   </script>
