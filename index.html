@@ -1,1 +1,59 @@
-Welcome to LegalBot
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>LegalBot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+textarea {
+  width: 600px;
+  height: 200px;
+}
+.hidden {
+  display: none;
+}
+  </style>
+  <script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+  <h2>Welcome to LegalBot</h2>
+  <div id="section1">
+    <p>What do you need help with?</p>
+    <textarea id="question"></textarea>
+    <p><button id="button1">Ask</button></p>
+  </div>
+  <div id="section2" class="hidden">
+    <p>I need some more information.</p>
+    <table>
+      <tr>
+        <td><label for="info1">Info 1</label></td>
+        <td><input type="text" id="info1"></input></td>
+      </tr>
+      <tr>
+        <td><label for="info2">Info 2</label></td>
+        <td><input type="text" id="info2"></input></td>
+      </tr>
+      <tr>
+        <td><label for="info3">Info 3</label></td>
+        <td><input type="text" id="info3"></input></td>
+      </tr>
+    </table>
+    <p><button id="button2">Done</button></p>
+  </div>
+  <div id="section3" class="hidden">
+    <p>Blah blah blah</p>
+  </div>
+  <script>
+$(document).ready(function() {
+  $('#button1').click(function() {
+    $('#section1').hide();
+    $('#section2').show();
+  });
+  $('#button2').click(function() {
+    $('#section2').hide();
+    $('#section3').show();
+  });
+});
+  </script>
+</body>
+</html>
