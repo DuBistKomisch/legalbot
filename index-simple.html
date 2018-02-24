@@ -5,9 +5,32 @@
   <title>LegalBot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+      body {
+    background-color: #e6ecf0;
+    margin: auto;
+    width: 50%;
+    font-family: "Helvetca Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+button{
+        background-color: #1da1f2;
+        border: 1px solid #1da1f2;
+        border-radius: 25px;
+        border-color: #c0deed;
+        text-align: center;
+        text-decoration: none;  
+         font-size: 20px;
+     margin: auto;
+    width: 600px;
+}
+
 textarea {
   width: 600px;
   height: 200px;
+  border-radius: 25px;
+  border-color: #1da1f2;
+  resize: none;
 }
 .hidden {
   display: none;
@@ -16,10 +39,12 @@ textarea {
   <script src="jquery-3.3.1.min.js"></script>
 </head>
 <body>
-  <h2>Welcome to LegalBot</h2>
+  <h2>Welcome to LegalBot
+    </h2>
   <div id="section1">
     <p>What do you need help with?</p>
-    <textarea id="question"></textarea>
+    <textarea id="question">
+      </textarea>
     <p><button id="button1">Ask</button></p>
   </div>
   <div id="section2" class="hidden">
