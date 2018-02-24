@@ -39,43 +39,65 @@ textarea {
   <script src="jquery-3.3.1.min.js"></script>
 </head>
 <body>
-  <h2>Welcome to LegalBot
-    </h2>
+  <h2>Welcome to LegalBot</h2>
   <div id="section1">
-    <p>What do you need help with?</p>
-    <textarea id="question">
-      </textarea>
+    <p>How can we help?</p>
+    <textarea id="question"></textarea>
     <p><button id="button1">Ask</button></p>
   </div>
-  <div id="section2" class="hidden">
-    <p>Looks like you're looking for divorce. I need some more information.</p>
+  <div id="section2-divorce" class="hidden">
+    <p>We think you want to get a divorce. We need a bit more information.</p>
     <table>
       <tr>
-        <td><label for="info1">How many years have you been married?</label></td>
-        <td><input type="text" id="info1"></input></td>
+        <td><label for="info1-divorce">Were you married in Australia?</label></td>
+        <td>
+          <input type="radio" name="info1-divorce" value="true">Yes</input>
+          <input type="radio" name="info1-divorce" value="false">No</input>
+        </td>
       </tr>
       <tr>
-        <td><label for="info2">Info 2</label></td>
-        <td><input type="text" id="info2"></input></td>
+        <td><label for="info2-divorce">How many years have you been married?</label></td>
+        <td><input type="text" id="info2-divorce"></input></td>
       </tr>
       <tr>
-        <td><label for="info3">Info 3</label></td>
-        <td><input type="text" id="info3"></input></td>
+        <td><label for="info3-divorce">Do you have any children under 18?</label></td>
+        <td>
+          <input type="radio" name="info3-divorce" value="true">Yes</input>
+          <input type="radio" name="info3-divorce" value="false">No</input>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="info4-divorce">Do you have access to your marriage certificate?</label></td>
+        <td>
+          <input type="radio" name="info4-divorce" value="true">Yes</input>
+          <input type="radio" name="info4-divorce" value="false">No</input>
+        </td>
       </tr>
     </table>
-    <p><button id="button2">Done</button></p>
+    <p><button id="button2-divorce">Done</button></p>
   </div>
   <div id="section3" class="hidden">
     <p id="result"></p>
   </div>
   <script>
+var keywords = {
+  divorce: ['separate', 'divorce', 'break up', 'property', 'house', 'kid', 'child', 'custody'],
+  diversion: ['charge', 'accident', 'crash', 'reckless', 'dangerous', 'driving', 'police', 'court', 'speed', 'breath']
+};
 $(document).ready(function() {
   $('#button1').click(function() {
-    $('#section1').hide();
-    $('#section2').show();
+    $('#question').prop('disabled', true);
+    $('#button1').hide();
+    var question = $('#question').val().toLowerCase();
+    console.log(question);
+    var topic = Object.keys(keywords).find((topic) => keywords[topic].filter((word) => question.includes(word)).length > 0);
+    if (topic === 'divorce') {
+      $('#section2-divorce').show();
+    } else if (topic === 'diversion') {
+      $('#section2-diversion').show();
+    }
   });
   $('#button2').click(function() {
-    $('#section2').hide();
     $('#result').text('Just get a divorce lol.');
     $('#section3').show();
   });
